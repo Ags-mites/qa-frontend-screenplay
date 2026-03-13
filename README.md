@@ -1,43 +1,41 @@
 # QA Frontend Screenplay
 
-Proyecto de automatización de pruebas E2E para frontend usando:
+Proyecto de automatización de pruebas E2E para frontend usando el patrón **Screenplay** con **Serenity BDD** y **Cucumber**.
 
-- Java
+## Tecnologías
+
+- Java 17
 - Gradle
-- Cucumber
 - Serenity BDD
-- Patrón Screenplay
-
-El objetivo es validar flujos funcionales (por ejemplo, lectura y creación de Kudos) mediante pruebas automatizadas.
+- Cucumber
+- JUnit 5
 
 ## Prerrequisitos
 
-- Java 17 (o versión compatible con el proyecto)
+- JDK 17 instalado
 - Git
 - Docker y Docker Compose
 
-## Dependencia externa para las pruebas
+## Preparación del entorno
 
-Antes de ejecutar los tests de este repositorio, debes tener disponible el MVP de soporte:
+Antes de ejecutar las pruebas, necesitas levantar el entorno del MVP:
 
-1. Clona el repositorio:
+1. Clona el repositorio del MVP:
 
 ```bash
 git clone https://github.com/ElyRiven/sofkianos-mvp
 ```
 
-2. Entra al repositorio clonado y levanta los servicios:
+2. Levanta los servicios:
 
 ```bash
 cd sofkianos-mvp
 docker compose up -d
 ```
 
-Con esto ya puedes continuar con las pruebas y ejecución de este proyecto.
-
 ## Ejecución de pruebas
 
-Desde la raíz de este proyecto (`qa-frontend-screenplay`):
+Desde la raíz del proyecto:
 
 ### Linux / macOS
 
@@ -51,39 +49,25 @@ Desde la raíz de este proyecto (`qa-frontend-screenplay`):
 .\gradlew.bat clean test aggregate
 ```
 
-## Ejecución por runner
-
-Si quieres ejecutar específicamente el runner principal del proyecto (`TestRunnerKudos`):
-
-### Linux / macOS
+### Ejecutar un runner específico
 
 ```bash
 ./gradlew clean test --tests com.frontendpom.runners.TestRunnerKudos aggregate
 ```
 
-### Windows (PowerShell)
+## Configuración
 
-```powershell
-.\gradlew.bat clean test --tests com.frontendpom.runners.TestRunnerKudos aggregate
-```
-
-## Configuración de URLs
-
-Las URLs base usadas por las pruebas están definidas actualmente en:
+Las URLs base están configuradas en:
 
 - `src/test/java/com/frontendpom/util/Config.java`
 
-Valores actuales:
+| Variable | Valor por defecto |
+|----------|-------------------|
+| BASE_URL | http://localhost:5173 |
+| API_BASE_URL | http://localhost:8082/api/v1 |
 
-- `BASE_URL = "http://localhost:5173"` (frontend)
-- `API_BASE_URL = "http://localhost:8082/api/v1"` (API)
+## Ver reporte
 
-Si tu entorno corre en otros puertos o dominio, ajusta estos valores antes de ejecutar los tests.
+Luego de la ejecución, abre el reporte HTML en:
 
-## Reportes
-
-Al finalizar, Serenity genera reportes HTML en:
-
-- `target/site/serenity`
-
-Puedes abrir `index.html` dentro de esa carpeta para revisar los resultados.
+- `target/site/serenity/index.html`
