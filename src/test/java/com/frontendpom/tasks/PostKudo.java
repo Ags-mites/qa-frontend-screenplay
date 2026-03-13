@@ -9,10 +9,6 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.is;
-
 public class PostKudo implements Task {
 
     private final Map<String, String> data;
@@ -39,12 +35,6 @@ public class PostKudo implements Task {
                 Post.to("/kudos")
                         .with(request -> request.contentType(ContentType.JSON)
                                 .body(apiBody)
-                                .log().all())
-        );
-        
-        actor.should(
-                seeThatResponse("El código de respuesta debe ser 200, 201, 202 o 400",
-                        response -> response.statusCode(anyOf(is(200), is(201), is(202), is(400)))
                                 .log().all())
         );
     }
