@@ -49,6 +49,14 @@ Desde la raíz del proyecto:
 .\gradlew.bat clean test aggregate
 ```
 
+## Ver Reporte de Pruebas
+
+Una vez finalizada la ejecución, el reporte detallado se genera en la ruta:
+
+- **Reporte principal:** `target/site/serenity/index.html`
+- **Resumen:** `target/site/serenity/serenity-summary.html`
+
+
 ### Ejecutar un runner específico
 
 ```bash
