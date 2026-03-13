@@ -22,6 +22,6 @@ Feature: Exploración y Visualización de Kudos (Read Model)
 
     Examples:
       | correo_remitente       | correo_destinatario       | categoria | mensaje                             |
-      | frontend@sofkianos.com | christopher@sofkianos.com | INNOVATION   | Mentoría excepcional en Java 21.    |
-      | backend@sofkianos.com  | santiago@sofkianos.com    | PASSION   | Compromiso total con el Roadmap.    |
-      | santiago@sofkianos.com | backend@sofkianos.com     | TEAMWORK  | Soporte en pruebas de carga MVP.    |
+      | frontend@sofkianos.com | christopher@sofkianos.com | Innovation | Mentoría excepcional en Java 21.    |
+      | backend@sofkianos.com  | santiago@sofkianos.com    | Passion   | Compromiso total con el Roadmap.    |
+      | santiago@sofkianos.com | backend@sofkianos.com     | Teamwork  | Soporte en pruebas de carga MVP.    |

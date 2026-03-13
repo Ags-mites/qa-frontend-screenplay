@@ -1,6 +1,5 @@
 package com.frontendpom.tasks;
 
-import com.frontendpom.util.CategoryUtils;
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -30,8 +29,6 @@ public class PostKudo implements Task {
         String receiver = data.getOrDefault("to", data.getOrDefault("destinatario", data.get("correo_destinatario")));
         String category = data.getOrDefault("category", data.get("categoria"));
         String message = data.getOrDefault("message", data.get("mensaje"));
-
-        category = CategoryUtils.toTitleCase(category);
 
         apiBody.put("from", sender);
         apiBody.put("to", receiver);
